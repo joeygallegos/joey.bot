@@ -16,7 +16,7 @@ public class Help extends BotCommand {
 
     public Help() {
         setName("help");
-        setAlias("!");
+        setAlias("?");
         setAdminOnly(false);
     }
 

@@ -54,6 +54,14 @@ public class Commands {
             }
         }
 
+        if (cmd == null) {
+            for (BotCommand botCommand : getCommands()) {
+                if (botCommand.getAlias().equalsIgnoreCase(commandSplit[0])) {
+                    cmd = botCommand;
+                }
+            }
+        }
+
         long difference = System.currentTimeMillis() - getLastCommand();
         if (difference <= 3000L) {
             Resource.message("Please wait before using this again!");

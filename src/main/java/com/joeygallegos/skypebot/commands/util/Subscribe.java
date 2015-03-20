@@ -15,7 +15,7 @@ public class Subscribe extends BotCommand {
 
     public Subscribe() {
         setName("subscribe");
-        setAlias("sub");
+        setAlias("mixtape");
         setHidden(false);
         setAdminOnly(false);
     }
