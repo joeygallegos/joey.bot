@@ -24,7 +24,6 @@ public class Choice extends BotCommand {
 
     @Override
     public void run(ChatMessage message, String[] args) throws Exception {
-
         String msg = "";
         for(int i = 0; i < args.length; i++) {
             String arg = args[i] + " ";

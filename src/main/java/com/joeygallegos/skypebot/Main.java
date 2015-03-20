@@ -8,7 +8,6 @@ package com.joeygallegos.skypebot;
  * agreements with you, the third party.
  */
 public class Main {
-
     public static void main(String[] args) {
         new BotCore();
     }

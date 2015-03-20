@@ -24,11 +24,6 @@ public class BotCore {
 
     private static BotCore instance;
     private static long startTime = 0L;
-
-    public static long getStartTime() {
-        return startTime;
-    }
-
     // PRINTER CLASS
     private Printer printer;
 
@@ -98,6 +93,10 @@ public class BotCore {
         startTime = System.currentTimeMillis();
     }
 
+    public static long getStartTime() {
+        return startTime;
+    }
+
     public static BotCore getInstance() {
         return instance;
     }
@@ -129,5 +128,4 @@ public class BotCore {
         }
         System.exit(SHUTDOWN_CODE);
     }
-
 }
