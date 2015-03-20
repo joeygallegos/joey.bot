@@ -27,8 +27,10 @@ public class ChatUtil {
 
     public static void fuckingCheck(ChatMessage message) {
         try {
-            if (message.getContent().contains("fucking")) {
+            if (message.getContent().contains("fucking") || message.getContent().contains("fuck")) {
                 Resource.message(yo[new Random().nextInt(yo.length)]);
+            } else if (message.getContent().contains("rigged") && message.getContent().contains("bot")) {
+                Resource.message("I'm not fucking rigged ffs");
             }
         } catch (SkypeException e) {
             e.printStackTrace();
