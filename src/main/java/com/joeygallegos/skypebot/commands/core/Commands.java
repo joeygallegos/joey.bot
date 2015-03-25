@@ -34,6 +34,7 @@ public class Commands {
         String command = message.getContent();
         System.out.println("Received chat message: " + command);
 
+        // IF NOT COMMAND
         if (!command.startsWith(Resource.COMMAND_PREFIX)) {
             ChatUtil.fuckingCheck(message);
             return;
@@ -54,32 +55,24 @@ public class Commands {
             }
         }
 
-        if (cmd == null) {
-            for (BotCommand botCommand : getCommands()) {
-                if (botCommand.getAlias().equalsIgnoreCase(commandSplit[0])) {
-                    cmd = botCommand;
-                }
-            }
-        }
+        if (cmd != null) {
+            long difference = System.currentTimeMillis() - getLastCommand();
+            if (difference <= 3000L) {
+                Resource.message("Please wait before using this again!");
 
-        long difference = System.currentTimeMillis() - getLastCommand();
-        if (difference <= 3000L) {
-            Resource.message("Please wait before using this again!");
-        } else {
-            if (cmd != null) {
+            } else {
                 lastCommand = System.currentTimeMillis();
-
                 if (cmd.isAdminOnly()) {
                     if (!Arrays.asList(Resource.ADMINS).contains(message.getSenderId())) {
                         Resource.message("You can't use this command!");
                         return;
                     }
                 }
-
                 cmd.run(message, (String[]) ArrayUtils.remove(commandSplit, 0));
-            } else {
-                Resource.message("That command wasn't found!");
             }
+        } else {
+            // NOT A COMMAND, DO SOMETHING ELSE
+            Resource.message("That command wasn't found!");
         }
     }
 

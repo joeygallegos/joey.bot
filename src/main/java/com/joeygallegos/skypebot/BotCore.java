@@ -24,6 +24,7 @@ public class BotCore {
 
     private static BotCore instance;
     private static long startTime = 0L;
+
     // PRINTER CLASS
     private Printer printer;
 

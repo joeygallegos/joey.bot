@@ -10,8 +10,6 @@ import com.joeygallegos.skypebot.BotCore;
  * agreements with you, the third party.
  */
 public class Resource {
-
-    public static final String VERSION = "0.1";
     public static final String COMMAND_PREFIX = "!";
     public static final String ORIGINAL_TOPIC = "Joey's social chat";
     public static final String[] ADMINS = {"joey.gallegos.97", "joey.bot"};
