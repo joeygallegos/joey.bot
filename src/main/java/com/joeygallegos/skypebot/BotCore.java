@@ -51,7 +51,7 @@ public class BotCore {
         Commands.getCommands().add(new Stop());
         Commands.getCommands().add(new Restart());
         Commands.getCommands().add(new Toggle());
-        Commands.getCommands().add(new Help());
+        Commands.getCommands().add(new CommandsCommand());
         Commands.getCommands().add(new ShouldYouCommand());
 
         // FUN

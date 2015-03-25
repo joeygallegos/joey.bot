@@ -1,6 +1,7 @@
 package com.joeygallegos.skypebot.commands.core;
 
 import com.joeygallegos.skypebot.listeners.ChatUtil;
+import com.joeygallegos.skypebot.util.TimeUtil;
 import com.joeygallegos.skypebot.util.resources.Resource;
 import com.skype.ChatMessage;
 import org.apache.commons.lang.ArrayUtils;
@@ -56,10 +57,9 @@ public class Commands {
         }
 
         if (cmd != null) {
-            long difference = System.currentTimeMillis() - getLastCommand();
-            if (difference <= 3000L) {
-                Resource.message("Please wait before using this again!");
-
+            long difference = System.currentTimeMillis() - lastCommand;
+            if (difference <= 4000L) {
+                Resource.message("Please wait " + TimeUtil.calculateTime(difference) + " before using this again!");
             } else {
                 lastCommand = System.currentTimeMillis();
                 if (cmd.isAdminOnly()) {
@@ -71,7 +71,6 @@ public class Commands {
                 cmd.run(message, (String[]) ArrayUtils.remove(commandSplit, 0));
             }
         } else {
-            // NOT A COMMAND, DO SOMETHING ELSE
             Resource.message("That command wasn't found!");
         }
     }

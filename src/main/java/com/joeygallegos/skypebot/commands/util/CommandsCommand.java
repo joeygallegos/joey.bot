@@ -12,12 +12,13 @@ import com.skype.ChatMessage;
  * claiming any contents as your own will break the terms of the License, and void any
  * agreements with you, the third party.
  */
-public class Help extends BotCommand {
+public class CommandsCommand extends BotCommand {
 
-    public Help() {
-        setName("help");
+    public CommandsCommand() {
+        setName("commands");
         setAlias("?");
         setAdminOnly(false);
+        setHidden(false);
     }
 
     @Override
@@ -25,7 +26,6 @@ public class Help extends BotCommand {
         super.run(message, args);
 
         String commands = "";
-
         for (BotCommand command : Commands.getCommands()) {
             if (command.isHidden()) continue;
 

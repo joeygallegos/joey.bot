@@ -10,12 +10,16 @@ package com.joeygallegos.skypebot.util;
 public class TimeUtil {
 
     public static String calculateTime(long ticks) {
+
+        long days = (int) (ticks / 3600) % 24;
         long hours = ticks / 3600;
         long r = ticks % 3600;
         long mins = r / 60;
         long secs = r % 60;
 
-        if (hours > 0) {
+        if (hours > 24) {
+            return days + "d" + hours + "h" + mins + "m" + secs + "s";
+        } else if (hours > 0 && hours < 24) {
             return hours + "h" + mins + "m" + secs + "s";
         } else if (mins > 0) {
             return mins + "m" + secs + "s";
